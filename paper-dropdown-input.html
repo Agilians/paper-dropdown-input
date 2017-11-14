@@ -196,10 +196,10 @@ respectively.
         </template>
         <template is="dom-if" if="[[!_filtereditems.length]]">
           <template is="dom-if" if="[[!_showFreeInput(freedom, searchValue)]]">
-            <p warning disabled>No results were found</p>
+            <p warning disabled>{{notfoundmessage}}</p>
           </template>
           <template is="dom-if" if="[[_showFreeInput(freedom, searchValue)]]">
-            <p warning disabled>No results were found<br />would you like to use the search value?</p>
+            <p warning disabled>{{notfoundmessage}}<br />would you like to use the search value?</p>
             <paper-item>[[searchValue]]</paper-item>
           </template>
         </template>
@@ -288,6 +288,14 @@ respectively.
            */
           errorMessage: {
               type: String
+          },
+		
+	  /**
+           * The error message to display when item not Found
+           */
+          notfoundmessage: {
+            type: String,
+            value: "No results were found",
           },
 
           /**
