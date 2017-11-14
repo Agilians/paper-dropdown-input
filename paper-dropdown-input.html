@@ -109,6 +109,9 @@ respectively.
       paper-menu-button {
         --paper-input-container-input-color: var(--primary-text-color);
       }
+      paper-listbox {
+        height: 500px;
+      }
       .dropdown-content > p {
         padding-left: 1em;
       }
@@ -118,6 +121,7 @@ respectively.
         align-items: center;
       }
       [search-bar] iron-input {
+        width: 120px;
         flex: 1;
         display: flex;
         flex-direction: row;
@@ -137,6 +141,7 @@ respectively.
         background: #FFE0B2; /* paper-orange-100 */
         margin: 0;
         padding: .5em 1em;
+        font-size: .8em;
       }
     </style>
 
@@ -289,8 +294,8 @@ respectively.
           errorMessage: {
               type: String
           },
-		
-	  /**
+
+          /**
            * The error message to display when item not Found
            */
           notfoundmessage: {
@@ -691,8 +696,7 @@ respectively.
           this._templateInstance = this.stamp({
             items: this._filtereditems
           });
-	  //show items at startup
-	  this._templateInstance.items = this._filtereditems;
+          this._templateInstance.items = this._filtereditems;
           var dom = Polymer.dom(this);
           dom.appendChild(this._templateInstance.root);
           // dom.insertBefore(this._templateInstance.root, dom.firstChild);
@@ -744,6 +748,7 @@ respectively.
         clearSearch: function(event) {
           event && this._stopEvent(event);
           this.searchValue = "";
+          this.$.searchInput.value="";
           this._focusSearch();
         },
 
