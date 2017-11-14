@@ -691,6 +691,8 @@ respectively.
           this._templateInstance = this.stamp({
             items: this._filtereditems
           });
+	  //show items at startup
+	  this._templateInstance.items = this._filtereditems;
           var dom = Polymer.dom(this);
           dom.appendChild(this._templateInstance.root);
           // dom.insertBefore(this._templateInstance.root, dom.firstChild);
